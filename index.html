@@ -174,6 +174,58 @@
       color: white;
     }
 
+    .size-btn.sold-out {
+      background: #f5f5f5;
+      border-color: #e0e0e0;
+      color: #999;
+      cursor: not-allowed;
+      position: relative;
+    }
+
+    .size-btn.sold-out::after {
+      content: 'Sold';
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: #e53935;
+      font-weight: 500;
+    }
+
+    .size-btn.sold-out:hover {
+      border-color: #e0e0e0;
+    }
+
+    /* FOMO Notification */
+    .fomo-notification {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(51, 51, 51, 0.95);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 1001;
+      opacity: 0;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .fomo-notification.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .fomo-notification .fomo-icon {
+      margin-right: 8px;
+    }
+
     /* CTA Buttons */
     .cta-section {
       position: sticky;
@@ -517,12 +569,12 @@
         <span class="size-label">Select Size</span>
         <div class="size-options">
           <button class="size-btn" data-size="XXS">XXS</button>
-<button class="size-btn" data-size="XS">XS</button>
+<button class="size-btn sold-out" data-size="XS" disabled>XS</button>
 <button class="size-btn" data-size="S">S</button>
 <button class="size-btn" data-size="M">M</button>
 <button class="size-btn" data-size="L">L</button>
-<button class="size-btn" data-size="XL">XL</button>
-<button class="size-btn" data-size="XXL">XXL</button>
+<button class="size-btn" data-size="XL" id="sizeXL">XL</button>
+<button class="size-btn sold-out" data-size="XXL" disabled>XXL</button>
         </div>
       </div>
 
@@ -873,6 +925,11 @@
     </div>
   </div>
 
+  <!-- FOMO Notification -->
+  <div class="fomo-notification" id="fomoNotification">
+    <span class="fomo-icon">⚡</span>Size XL just sold out
+  </div>
+
   <script>
     // Configuration - All values replaced by Page Builder agent
     const CONFIG = {
@@ -887,13 +944,37 @@
     let selectedSize = CONFIG.HAS_SIZES ? null : 'ONE_SIZE';
 
     // Size Selection (only if HAS_SIZES is true)
-    document.querySelectorAll('.size-btn').forEach(btn => {
+    document.querySelectorAll('.size-btn:not(.sold-out)').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         selectedSize = btn.dataset.size;
       });
     });
+
+    // FOMO: XL sells out after 15 seconds
+    setTimeout(() => {
+      const xlButton = document.getElementById('sizeXL');
+      if (xlButton && !xlButton.classList.contains('sold-out')) {
+        // If XL was selected, deselect it
+        if (xlButton.classList.contains('selected')) {
+          xlButton.classList.remove('selected');
+          selectedSize = null;
+        }
+        // Mark as sold out
+        xlButton.classList.add('sold-out');
+        xlButton.disabled = true;
+
+        // Show subtle notification
+        const notification = document.getElementById('fomoNotification');
+        notification.classList.add('show');
+
+        // Auto-hide after 3 seconds
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 3000);
+      }
+    }, 15000);
 
     // Gallery
     document.querySelectorAll('.gallery-item').forEach(img => {

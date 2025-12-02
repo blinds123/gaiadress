@@ -1,0 +1,46 @@
+{
+  "test": "playwright_vision",
+  "timestamp": "2025-12-02T04:25:48.007Z",
+  "test_59_direct": {
+    "passed": true,
+    "final_url": "https://simpleswap.io/exchange?id=f64c4p19byhboe9l",
+    "redirected_to_simpleswap": true,
+    "screenshot": "/Users/nelsonchan/Downloads/secretjeans TEMPLATE SMALL v8 copy/state/screenshots/test1-03-result.png",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 400 ()",
+      "Failed to load resource: the server responded with a status of 401 ()",
+      "Failed to load resource: the server responded with a status of 401 ()",
+      "Potential permissions policy violation: microphone is not allowed in this document.",
+      "Failed to load resource: the server responded with a status of 401 ()",
+      "Cannot read properties of null (reading 'o')",
+      "Cannot read properties of null (reading 'o')",
+      "Failed to load resource: the server responded with a status of 429 ()"
+    ]
+  },
+  "test_19_decline": {
+    "passed": true,
+    "popup_appeared": true,
+    "final_url": "https://simpleswap.io/exchange?id=a52nnj52at51apcx",
+    "redirected_to_simpleswap": true,
+    "screenshot": "/Users/nelsonchan/Downloads/secretjeans TEMPLATE SMALL v8 copy/state/screenshots/test2-02-result.png",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 401 ()",
+      "Failed to load resource: the server responded with a status of 401 ()",
+      "Potential permissions policy violation: microphone is not allowed in this document.",
+      "Failed to load resource: the server responded with a status of 401 ()",
+      "Cannot read properties of null (reading 'o')",
+      "Cannot read properties of null (reading 'o')"
+    ]
+  },
+  "test_29_accept": {
+    "passed": true,
+    "popup_appeared": true,
+    "final_url": "https://simpleswap.io/exchange?id=cgz0nlsnio36ewan",
+    "redirected_to_simpleswap": true,
+    "screenshot": "/Users/nelsonchan/Downloads/secretjeans TEMPLATE SMALL v8 copy/state/screenshots/test3-02-result.png",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 401 ()",
+      "Failed to load resource: the server responded with a status of 401 ()"
+    ]
+  }
+}

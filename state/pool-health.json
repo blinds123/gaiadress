@@ -1,0 +1,52 @@
+{
+  "test": "pool_health",
+  "timestamp": "2025-12-02T04:24:35.504Z",
+  "initial_health": {
+    "pool_19": 15,
+    "pool_29": 15,
+    "pool_59": 15,
+    "total": 45
+  },
+  "tier_tests": {
+    "tier_59": {
+      "success": true,
+      "exchange_url": "https://simpleswap.io/exchange?id=dcml6d8pr4gp7oee",
+      "valid": true,
+      "response_time": "0ms",
+      "pool_status": "instant",
+      "http_status": 200
+    },
+    "tier_29": {
+      "success": true,
+      "exchange_url": "https://simpleswap.io/exchange?id=43hxjmfv03c842yg",
+      "valid": true,
+      "response_time": "0ms",
+      "pool_status": "instant",
+      "http_status": 200
+    },
+    "tier_19": {
+      "success": true,
+      "exchange_url": "https://simpleswap.io/exchange?id=f0tjuu2dquw7pjk2",
+      "valid": true,
+      "response_time": "1ms",
+      "pool_status": "instant",
+      "http_status": 200
+    }
+  },
+  "post_consumption_health": {
+    "pool_19": 15,
+    "pool_29": 15,
+    "pool_59": 15,
+    "total": 45,
+    "replenishing": true
+  },
+  "all_passed": true,
+  "summary": {
+    "total_tests": 7,
+    "passed": 7,
+    "failed": 0,
+    "pool_mode": "dynamic-pool",
+    "auto_replenishment": "working",
+    "all_tiers_operational": true
+  }
+}
