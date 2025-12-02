@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gaiadress - Elegance Meets Comfort</title>
+  <meta name="description" content="The Dress Everyone's Talking About - Elegance Meets Comfort">
+
+  <!-- TikTok Pixel (disabled) -->
+  <!--
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      ttq.load('YOUR_PIXEL_ID');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+  -->
+
+  <style>
+    :root {
+      --color-primary: #8B9B5E;
+      --color-secondary: #7A8850;
+      --color-accent: #A8B87C;
+      --color-bg: #F9F9F9;
+      --color-text: #333333;
+      --color-success: #28a745;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: min(100%, 1200px);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 16px;
+    }
+
+    .hero-image {
+      width: 100%;
+      border-radius: 12px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+
+    .hero-content {
+      padding: 24px 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .hero-tagline {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .hero-price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-price-original {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 18px;
+      margin-left: 8px;
+    }
+
+    /* Product Gallery */
+    .gallery {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 16px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-item {
+      flex: 0 0 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .gallery-item.active {
+      border-color: var(--color-primary);
+    }
+
+    /* Size Selector */
+    .size-selector {
+      margin: 24px 0;
+    }
+
+    .size-label {
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .size-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .size-btn {
+      min-width: 48px;
+      height: 48px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .size-btn:hover {
+      border-color: var(--color-primary);
+    }
+
+    .size-btn.selected {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+    }
+
+    /* CTA Buttons */
+    .cta-section {
+      position: sticky;
+      bottom: 0;
+      background: white;
+      padding: 16px;
+      border-top: 1px solid #eee;
+      z-index: 100;
+    }
+
+    .cta-btn {
+      width: 100%;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 56px;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+
+    .cta-primary {
+      background: var(--color-primary);
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .cta-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .trust-badge svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Accordion */
+    .accordion {
+      border-top: 1px solid #eee;
+      margin-top: 24px;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .accordion-header {
+      width: 100%;
+      padding: 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .accordion-header svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.open .accordion-header svg {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 500px;
+    }
+
+    .accordion-body {
+      padding: 0 0 16px 0;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .accordion-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+    }
+
+    .accordion-body th, .accordion-body td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .accordion-body th {
+      background: var(--color-bg);
+      font-weight: 600;
+    }
+
+    .accordion-body ul {
+      margin: 12px 0;
+      padding-left: 20px;
+    }
+
+    .accordion-body li {
+      margin: 6px 0;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      padding: 48px 16px;
+      background: #f9f9f9;
+    }
+
+    .testimonials-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .testimonial-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: contain; /* FULL image, no crop */
+    }
+
+    .testimonial-content {
+      flex: 1;
+    }
+
+    .testimonial-rating {
+      color: #ffc107;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-text {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .testimonial-platform {
+      font-size: 12px;
+      color: #666;
+      margin-left: 8px;
+    }
+
+    .testimonial-date {
+      font-size: 12px;
+      color: #999;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* Order Bump Popup */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 100%;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .popup-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .popup-text {
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .popup-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    .popup-btn-accept {
+      background: var(--color-success);
+      color: white;
+      border: none;
+    }
+
+    .popup-btn-decline {
+      background: white;
+      color: #666;
+      border: 1px solid #ddd;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        gap: 48px;
+        align-items: flex-start;
+      }
+
+      .hero-image-container {
+        flex: 1;
+        max-width: 50%;
+      }
+
+      .hero-content {
+        flex: 1;
+        position: sticky;
+        top: 24px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonial-card {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .testimonial-image {
+        max-width: 200px;
+        flex-shrink: 0;
+      }
+
+      .cta-section {
+        position: static;
+        border-top: none;
+        padding: 24px 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image-container">
+      <img src="images/product/product-01.jpeg" alt="gaiadress" class="hero-image" id="mainImage">
+      <div class="gallery">
+        <img src="images/product/product-01.jpeg" class="gallery-item active" alt="Product view 1">
+<img src="images/product/product-02.jpeg" class="gallery-item" alt="Product view 2">
+<img src="images/product/product-03.jpeg" class="gallery-item" alt="Product view 3">
+<img src="images/product/product-04.jpeg" class="gallery-item" alt="Product view 4">
+<img src="images/product/product-05.jpeg" class="gallery-item" alt="Product view 5">
+<img src="images/product/product-06.jpeg" class="gallery-item" alt="Product view 6">
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-badge">Trending Now</span>
+      <h1 class="hero-title">The Dress Everyone's Talking About</h1>
+      <p class="hero-tagline">Elegance Meets Comfort</p>
+
+      <div class="hero-price">
+        $59<span class="hero-price-original">$129</span>
+      </div>
+
+      <!-- Size Selector -->
+      <div class="size-selector">
+        <span class="size-label">Select Size</span>
+        <div class="size-options">
+          <button class="size-btn" data-size="XXS">XXS</button>
+<button class="size-btn" data-size="XS">XS</button>
+<button class="size-btn" data-size="S">S</button>
+<button class="size-btn" data-size="M">M</button>
+<button class="size-btn" data-size="L">L</button>
+<button class="size-btn" data-size="XL">XL</button>
+<button class="size-btn" data-size="XXL">XXL</button>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 5.8c0-.6.5-1.1 1.1-1.1h9.8c.6 0 1.1.5 1.1 1.1v7.4h2.2l3.6 4.3v4.7c0 .6-.5 1.1-1.1 1.1h-1.3c-.2 1.2-1.3 2.1-2.5 2.1s-2.3-.9-2.5-2.1H9.4c-.2 1.2-1.3 2.1-2.5 2.1s-2.3-.9-2.5-2.1H3.1c-.6 0-1.1-.5-1.1-1.1V5.8zm13.4 10.3h3.7l-2.9-3.5h-.8v3.5zm-7 5.4c.7 0 1.3-.6 1.3-1.3s-.6-1.3-1.3-1.3-1.3.6-1.3 1.3.6 1.3 1.3 1.3zm9.5 0c.7 0 1.3-.6 1.3-1.3s-.6-1.3-1.3-1.3-1.3.6-1.3 1.3.6 1.3 1.3 1.3z" fill="currentColor" stroke="currentColor" stroke-width="0.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Free Shipping</span>
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.2 13.1c.5 4.2 4.1 7.4 8.4 7.4 4.7 0 8.5-3.8 8.5-8.5S17.3 3.5 12.6 3.5c-2.9 0-5.4 1.4-7 3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.8 7.8L4.3 13l5.3-1.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Easy Returns</span>
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.1 2.3c-.1 0-.2 0-.3.1L4.2 5.8c-.2.1-.3.3-.3.5v6.1c0 4.2 2.8 8.1 6.8 9.4.3.1.6.1.9 0 4-1.3 6.8-5.2 6.8-9.4V6.3c0-.2-.1-.4-.3-.5l-7.6-3.4c-.2-.1-.3-.1-.4-.1z" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.2 12.1l2.1 2.3 3.8-4.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Secure Checkout</span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="cta-section">
+        <button class="cta-btn cta-primary" id="primaryCTA">Get Yours Now - $59</button>
+        <button class="cta-btn cta-secondary" id="secondaryCTA">Reserve Mine - $19</button>
+      </div>
+
+      <!-- Product Accordion -->
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Description</span>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.2 7.8l4.6 4.8 4.9-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">The Gaia Dress is your new wardrobe essential that effortlessly transitions from day to night. Crafted from premium, breathable fabric with a flattering silhouette that hugs your curves in all the right places, this dress is designed to make you feel confident and beautiful for any occasion. Whether you're heading to a summer wedding, brunch with friends, date night, or a professional event, the Gaia Dress delivers timeless elegance with modern comfort. Available in multiple colors and sizes XXS-XXL, it's the versatile piece you'll reach for again and again.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Size Guide</span>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.2 7.8l4.6 4.8 4.9-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body"><table class='size-guide-table'><thead><tr><th>Size</th><th>Bust (inches)</th><th>Waist (inches)</th><th>Hips (inches)</th><th>Length (inches)</th></tr></thead><tbody><tr><td>XXS</td><td>30-32</td><td>23-25</td><td>33-35</td><td>35</td></tr><tr><td>XS</td><td>32-34</td><td>25-27</td><td>35-37</td><td>35.5</td></tr><tr><td>S</td><td>34-36</td><td>27-29</td><td>37-39</td><td>36</td></tr><tr><td>M</td><td>36-38</td><td>29-31</td><td>39-41</td><td>36.5</td></tr><tr><td>L</td><td>38-41</td><td>31-34</td><td>41-44</td><td>37</td></tr><tr><td>XL</td><td>41-44</td><td>34-37</td><td>44-47</td><td>37.5</td></tr><tr><td>XXL</td><td>44-47</td><td>37-40</td><td>47-50</td><td>38</td></tr></tbody></table><p class='size-note'><strong>Sizing Tip:</strong> This dress has a fitted silhouette with slight stretch. If you're between sizes or prefer a more relaxed fit, we recommend sizing up. For reference, our model is 5'7" and wears a size Small.</p></div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Shipping Info</span>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.2 7.8l4.6 4.8 4.9-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body"><p><strong>Free Standard Shipping</strong> on all orders over $50!</p><p>All orders are processed within 24 hours and ship within 1-2 business days. Standard delivery takes 3-5 business days once shipped. You'll receive a tracking number via email as soon as your order ships so you can follow your package every step of the way.</p><p><strong>Shipping rates:</strong></p><ul><li>Orders under $50: $4.95 flat rate</li><li>Orders over $50: FREE</li><li>Express shipping (2-3 days): $12.95</li></ul><p>We ship to all 50 US states. International shipping coming soon!</p></div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Returns Policy</span>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.2 7.8l4.6 4.8 4.9-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body"><p><strong>30-Day Happiness Guarantee</strong></p><p>We want you to absolutely love your Gaia Dress! If for any reason you're not completely satisfied, you can return it within 30 days of delivery for a full refund - no questions asked.</p><p><strong>Free returns:</strong> We'll email you a prepaid return shipping label. Just print it, pack up your return, and drop it off at any authorized carrier location.</p><p><strong>Easy exchange:</strong> Want a different size or color? Contact our customer service team and we'll process your exchange right away with free shipping both ways.</p><p><strong>100% Satisfaction Guarantee:</strong> If your dress arrives damaged or defective, we'll send you a replacement immediately at no cost. Your happiness is our priority!</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <h2 class="testimonials-title">What Our Customers Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+  <img src="images/testimonials/testimonial-01.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"Obsessed with this dress!! Got so many compliments at my friend's wedding. The fabric is so soft and the fit is perfection. I'm 5'6 and got a medium - fits like a dream"</p>
+    <span class="testimonial-author">@sophiechen</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">3 days ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-02.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"This is my new go-to dress for everything. Wore it to brunch yesterday and literally had 4 people ask where I got it. True to size and the quality is amazing for the price!"</p>
+    <span class="testimonial-author">@rachel_lifestyle</span>
+    <span class="testimonial-platform">Instagram</span>
+    <span class="testimonial-date">5 days ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-03.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"i was skeptical about ordering online but WOW. this dress exceeded all my expectations. the material is thick and luxurious, not see-through at all. already ordered in 2 more colors lol"</p>
+    <span class="testimonial-author">@emilytravels</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">1 week ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-04.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★</div>
+    <p class="testimonial-text">"Really love this dress! The only reason I'm not giving 5 stars is because I wish it came in more colors. But the quality is fantastic and it's so comfortable I forget I'm wearing it."</p>
+    <span class="testimonial-author">@madisonbeauty</span>
+    <span class="testimonial-platform">Instagram</span>
+    <span class="testimonial-date">1 week ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-05.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"Best purchase I've made all year! This dress is everything. Wore it to a date night and my boyfriend couldn't stop staring. The fit is super flattering and hides all the right places"</p>
+    <span class="testimonial-author">@olivia.style</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">2 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-06.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"Finally found THE dress! I'm plus size and always struggle to find dresses that fit well. This one is perfect - not too tight, not too loose. The length is great too (I'm 5'4). Highly reccomend!"</p>
+    <span class="testimonial-author">Jessica M.</span>
+    <span class="testimonial-platform">Trustpilot</span>
+    <span class="testimonial-date">2 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-07.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"okay so I saw this on tiktok and thought it looked too good to be true but I'm SO glad I took the chance!! fits exactly like the photos, super stretchy and comfortable. can dress it up or down"</p>
+    <span class="testimonial-author">@avacolins</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">3 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-08.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★</div>
+    <p class="testimonial-text">"Great dress overall! Fits well and looks expensive. Only issue is it wrinkles easily so you need to steam it before wearing. But for the price, I'm really happy with my purchase."</p>
+    <span class="testimonial-author">@chloe.wardrobe</span>
+    <span class="testimonial-platform">Instagram</span>
+    <span class="testimonial-date">3 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-09.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"This dress is absolutely stunning! Wore it to my sister's graduation and got compliments all day. The fabric feels expensive and the cut is so flattering on my body type. Will definitely be ordering more!"</p>
+    <span class="testimonial-author">Sarah K.</span>
+    <span class="testimonial-platform">Facebook</span>
+    <span class="testimonial-date">1 month ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-10.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★</div>
+    <p class="testimonial-text">"The dress is nice but runs a bit small. I usually wear a small but had to exchange for a medium. Once I got the right size though, it looked great! Just order one size up to be safe."</p>
+    <span class="testimonial-author">@lily.fashion</span>
+    <span class="testimonial-platform">Instagram</span>
+    <span class="testimonial-date">1 month ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-11.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"I'm in love!! This dress makes me feel so confident and beautiful. Perfect for summer weddings, brunch dates, or just feeling cute. The shipping was super fast too - came in 3 days!"</p>
+    <span class="testimonial-author">@bella_diaries</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">1 month ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-12.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"Hands down the best online purchase I've made. The quality is incredible - you'd never guess this was the price point. I've washed it 3 times already and it still looks brand new. 10/10 recommend"</p>
+    <span class="testimonial-author">Amanda P.</span>
+    <span class="testimonial-platform">Google</span>
+    <span class="testimonial-date">5 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-13.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★</div>
+    <p class="testimonial-text">"Love the dress but wish the straps were adjustable. I'm petite (5'2) and they're a bit long for me. Used fashion tape to adjust and now it's perfect! Still giving 4 stars because the dress itself is gorgeous."</p>
+    <span class="testimonial-author">@grace.petite</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">5 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-14.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"Cannot believe how good this looks!! Everyone keeps asking if it's designer. The material is thick and high quality, not cheap at all. Size chart is accurate - I got an XS and it fits perfectly"</p>
+    <span class="testimonial-author">@zoey.closet</span>
+    <span class="testimonial-platform">Instagram</span>
+    <span class="testimonial-date">6 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-15.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"My new favorite dress period. So versatile - I've worn it to work with a blazer, to dinner with heels, and even casual with sneakers. Worth every penny and then some!"</p>
+    <span class="testimonial-author">Michelle R.</span>
+    <span class="testimonial-platform">Facebook</span>
+    <span class="testimonial-date">6 weeks ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-16.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"this is THE dress everyone needs in their closet!! i'm obsessed and have litterally worn it 5 times already this month. so comfy i could sleep in it but looks elegant enough for fancy events"</p>
+    <span class="testimonial-author">@hannah.ootd</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">2 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-17.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★</div>
+    <p class="testimonial-text">"Pretty dress but the color was slightly different than the photos - more muted in person. Still looks good though and I got tons of compliments wearing it to a wedding. Good value for money."</p>
+    <span class="testimonial-author">@mia.style</span>
+    <span class="testimonial-platform">Instagram</span>
+    <span class="testimonial-date">2 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-18.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"Best dress purchase ever! I'm curvy and this dress hugs in all the right places without being too tight. The length is perfect - hits just above the knee. Customer service was also amazing when I had questions!"</p>
+    <span class="testimonial-author">Jennifer L.</span>
+    <span class="testimonial-platform">Trustpilot</span>
+    <span class="testimonial-date">2 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-19.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★</div>
+    <p class="testimonial-text">"Really happy with this dress! The fabric is breathable which is great for summer. Only small thing is I wish there were pockets, but that's a minor complaint. Overall fantastic quality and fit!"</p>
+    <span class="testimonial-author">@isla.daily</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">3 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-20.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"I've bought 3 of these now in different colors because I can't get enough! They wash beautifully, don't fade, and always look amazing. This is quality that lasts. My friends are all buying them too!"</p>
+    <span class="testimonial-author">@avery.looks</span>
+    <span class="testimonial-platform">Instagram</span>
+    <span class="testimonial-date">3 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-21.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"Exceeded all expectations! The dress arrived beautifully packaged and the quality is outstanding. I'm 5'8 and got a large - perfect fit. Has become my signature dress that I wear constantly!"</p>
+    <span class="testimonial-author">Lauren M.</span>
+    <span class="testimonial-platform">Facebook</span>
+    <span class="testimonial-date">3 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-22.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"If you're on the fence about buying this - DO IT!! You won't regret it. The fit is amazing, the fabric is luxurious, and it photographs beautifully. Got a million likes on my instagram post wearing it"</p>
+    <span class="testimonial-author">@scarlett.vibes</span>
+    <span class="testimonial-platform">TikTok</span>
+    <span class="testimonial-date">4 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-23.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★</div>
+    <p class="testimonial-text">"Great quality dress at an amazing price point! Shipping took a bit longer than expected but it was worth the wait. The dress itself is beautiful and exactly as described. Would buy again!"</p>
+    <span class="testimonial-author">Diana H.</span>
+    <span class="testimonial-platform">Google</span>
+    <span class="testimonial-date">4 months ago</span>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <img src="images/testimonials/testimonial-24.png" class="testimonial-image" alt="Customer testimonial">
+  <div class="testimonial-content">
+    <div class="testimonial-rating">★★★★★</div>
+    <p class="testimonial-text">"This dress is absolutely perfect in every way! The cut, the fabric, the fit - everything is just right. I feel like a million bucks every time I wear it. Already planning to buy more as gifts for my friends!"</p>
+    <span class="testimonial-author">@penelope.style</span>
+    <span class="testimonial-platform">Facebook</span>
+    <span class="testimonial-date">4 months ago</span>
+  </div>
+</div>
+    </div>
+  </section>
+
+  <!-- Order Bump Popup -->
+  <div class="popup-overlay" id="orderBumpPopup">
+    <div class="popup-content">
+      <h3 class="popup-title">Wait! Special Offer</h3>
+      <p class="popup-text">Add matching accessories for just $10 more!</p>
+      <button class="popup-btn popup-btn-accept" id="popupAccept">Yes, Add for $10 Extra</button>
+      <button class="popup-btn popup-btn-decline" id="popupDecline">No thanks, just the original</button>
+    </div>
+  </div>
+
+  <script>
+    // Configuration - All values replaced by Page Builder agent
+    const CONFIG = {
+      POOL_URL: 'https://simpleswap-automation-1.onrender.com',
+      PRICE_PRIMARY: 59,
+      PRICE_SECONDARY: 19,
+      PRICE_BUMP: 69,
+      HAS_SIZES: true
+    };
+
+    // State
+    let selectedSize = CONFIG.HAS_SIZES ? null : 'ONE_SIZE';
+
+    // Size Selection (only if HAS_SIZES is true)
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedSize = btn.dataset.size;
+      });
+    });
+
+    // Gallery
+    document.querySelectorAll('.gallery-item').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('mainImage').src = img.src;
+        document.querySelectorAll('.gallery-item').forEach(i => i.classList.remove('active'));
+        img.classList.add('active');
+      });
+    });
+
+    // Accordion
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+
+    // CTA Handlers
+    function handleAddToCart(type) {
+      // Only require size selection if product has sizes
+      if (CONFIG.HAS_SIZES && !selectedSize) {
+        alert('Please select a size');
+        return;
+      }
+
+      if (type === 'primary') {
+        // Direct checkout - no popup
+        processOrder(CONFIG.PRICE_PRIMARY);
+      } else {
+        // Show order bump popup
+        showOrderBumpPopup();
+      }
+    }
+
+    function showOrderBumpPopup() {
+      document.getElementById('orderBumpPopup').classList.add('active');
+    }
+
+    function hideOrderBumpPopup() {
+      document.getElementById('orderBumpPopup').classList.remove('active');
+    }
+
+    async function processOrder(amount) {
+      try {
+        // Track TikTok event
+        if (typeof ttq !== 'undefined') {
+          ttq.track('InitiateCheckout', { value: amount, currency: 'USD' });
+        }
+
+        // Get exchange URL from pool
+        const response = await fetch(`${CONFIG.POOL_URL}/buy-now`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amountUSD: amount })
+        });
+
+        if (!response.ok) throw new Error('Pool request failed');
+
+        const data = await response.json();
+
+        if (data.exchangeUrl) {
+          window.location.href = data.exchangeUrl;
+        } else {
+          throw new Error('No exchange URL returned');
+        }
+      } catch (error) {
+        console.error('Order error:', error);
+        alert('Something went wrong. Please try again.');
+      }
+    }
+
+    // Event Listeners
+    document.getElementById('primaryCTA').addEventListener('click', () => handleAddToCart('primary'));
+    document.getElementById('secondaryCTA').addEventListener('click', () => handleAddToCart('secondary'));
+
+    document.getElementById('popupAccept').addEventListener('click', () => {
+      hideOrderBumpPopup();
+      processOrder(CONFIG.PRICE_BUMP);
+    });
+
+    document.getElementById('popupDecline').addEventListener('click', () => {
+      hideOrderBumpPopup();
+      processOrder(CONFIG.PRICE_SECONDARY);
+    });
+
+    // Close popup on overlay click
+    document.getElementById('orderBumpPopup').addEventListener('click', (e) => {
+      if (e.target.id === 'orderBumpPopup') {
+        hideOrderBumpPopup();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "source": "fallback",
+  "headlines": [
+    "The Dress Everyone's Talking About",
+    "Finally, A Dress That Actually Delivers",
+    "Join 10,000+ Happy Customers",
+    "Limited Stock - Don't Miss Out",
+    "Trending Now"
+  ],
+  "ctas": {
+    "primary": "Get Yours Now",
+    "secondary": "Reserve Mine"
+  },
+  "objection_busters": [
+    "Free returns within 30 days",
+    "Secure checkout - your data is protected",
+    "Ships within 24 hours"
+  ],
+  "urgency_hooks": [
+    "Only X left in stock",
+    "Sale ends soon",
+    "Selling fast"
+  ],
+  "trust_builders": [
+    "Trusted by 10,000+ customers",
+    "4.8/5 star rating",
+    "100% satisfaction guarantee"
+  ]
+}

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PRODUCT_NAME}} - {{PRODUCT_TAGLINE}}</title>
+  <meta name="description" content="{{PRODUCT_TAGLINE}}">
+
+  <!-- TikTok Pixel -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      ttq.load('{{TIKTOK_PIXEL_ID}}');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+
+  <style>
+    :root {
+      --color-primary: {{COLOR_PRIMARY}};
+      --color-secondary: {{COLOR_SECONDARY}};
+      --color-accent: {{COLOR_ACCENT}};
+      --color-bg: {{COLOR_BG}};
+      --color-text: {{COLOR_TEXT}};
+      --color-success: #28a745;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: min(100%, 1200px);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 16px;
+    }
+
+    .hero-image {
+      width: 100%;
+      border-radius: 12px;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+
+    .hero-content {
+      padding: 24px 0;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .hero-tagline {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .hero-price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .hero-price-original {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 18px;
+      margin-left: 8px;
+    }
+
+    /* Product Gallery */
+    .gallery {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 16px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-item {
+      flex: 0 0 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .gallery-item.active {
+      border-color: var(--color-primary);
+    }
+
+    /* Size Selector */
+    .size-selector {
+      margin: 24px 0;
+    }
+
+    .size-label {
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .size-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .size-btn {
+      min-width: 48px;
+      height: 48px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .size-btn:hover {
+      border-color: var(--color-primary);
+    }
+
+    .size-btn.selected {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+    }
+
+    /* CTA Buttons */
+    .cta-section {
+      position: sticky;
+      bottom: 0;
+      background: white;
+      padding: 16px;
+      border-top: 1px solid #eee;
+      z-index: 100;
+    }
+
+    .cta-btn {
+      width: 100%;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 56px;
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+
+    .cta-primary {
+      background: var(--color-primary);
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .cta-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .trust-badge svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Accordion */
+    .accordion {
+      border-top: 1px solid #eee;
+      margin-top: 24px;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #eee;
+    }
+
+    .accordion-header {
+      width: 100%;
+      padding: 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .accordion-header svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.open .accordion-header svg {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 500px;
+    }
+
+    .accordion-body {
+      padding: 0 0 16px 0;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      padding: 48px 16px;
+      background: #f9f9f9;
+    }
+
+    .testimonials-title {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .testimonial-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: contain; /* FULL image, no crop */
+    }
+
+    .testimonial-content {
+      flex: 1;
+    }
+
+    .testimonial-rating {
+      color: #ffc107;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-text {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .testimonial-platform {
+      font-size: 12px;
+      color: #666;
+      margin-left: 8px;
+    }
+
+    .testimonial-date {
+      font-size: 12px;
+      color: #999;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* Order Bump Popup */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    .popup-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 100%;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .popup-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .popup-text {
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .popup-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    .popup-btn-accept {
+      background: var(--color-success);
+      color: white;
+      border: none;
+    }
+
+    .popup-btn-decline {
+      background: white;
+      color: #666;
+      border: 1px solid #ddd;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        gap: 48px;
+        align-items: flex-start;
+      }
+
+      .hero-image-container {
+        flex: 1;
+        max-width: 50%;
+      }
+
+      .hero-content {
+        flex: 1;
+        position: sticky;
+        top: 24px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonial-card {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .testimonial-image {
+        max-width: 200px;
+        flex-shrink: 0;
+      }
+
+      .cta-section {
+        position: static;
+        border-top: none;
+        padding: 24px 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image-container">
+      <img src="images/product/product-01.jpeg" alt="{{PRODUCT_NAME}}" class="hero-image" id="mainImage">
+      <div class="gallery">
+        {{PRODUCT_GALLERY}}
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-badge">{{HERO_BADGE}}</span>
+      <h1 class="hero-title">{{HEADLINE_1}}</h1>
+      <p class="hero-tagline">{{PRODUCT_TAGLINE}}</p>
+
+      <div class="hero-price">
+        ${{PRICE}}<span class="hero-price-original">${{ORIGINAL_PRICE}}</span>
+      </div>
+
+      <!-- Size Selector -->
+      <div class="size-selector">
+        <span class="size-label">Select Size</span>
+        <div class="size-options">
+          {{SIZE_OPTIONS}}
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="trust-badges">
+        <div class="trust-badge">
+          {{SVG_SHIPPING}}
+          <span>Free Shipping</span>
+        </div>
+        <div class="trust-badge">
+          {{SVG_RETURNS}}
+          <span>Easy Returns</span>
+        </div>
+        <div class="trust-badge">
+          {{SVG_SECURE}}
+          <span>Secure Checkout</span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="cta-section">
+        <button class="cta-btn cta-primary" id="primaryCTA">{{PRIMARY_CTA}} - ${{PRICE}}</button>
+        <button class="cta-btn cta-secondary" id="secondaryCTA">{{SECONDARY_CTA}} - ${{PREORDER_PRICE}}</button>
+      </div>
+
+      <!-- Product Accordion -->
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Description</span>
+            {{SVG_ACCORDION_ARROW}}
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">{{PRODUCT_DESCRIPTION}}</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Size Guide</span>
+            {{SVG_ACCORDION_ARROW}}
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">{{SIZE_GUIDE}}</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Shipping Info</span>
+            {{SVG_ACCORDION_ARROW}}
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">{{SHIPPING_INFO}}</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span>Returns Policy</span>
+            {{SVG_ACCORDION_ARROW}}
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">{{RETURNS_POLICY}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <h2 class="testimonials-title">What Our Customers Say</h2>
+    <div class="testimonials-grid">
+      {{TESTIMONIALS}}
+    </div>
+  </section>
+
+  <!-- Order Bump Popup -->
+  <div class="popup-overlay" id="orderBumpPopup">
+    <div class="popup-content">
+      <h3 class="popup-title">Wait! Special Offer</h3>
+      <p class="popup-text">{{ORDER_BUMP_TEXT}}</p>
+      <button class="popup-btn popup-btn-accept" id="popupAccept">Yes, Add for ${{BUMP_PRICE}} Extra</button>
+      <button class="popup-btn popup-btn-decline" id="popupDecline">No thanks, just the original</button>
+    </div>
+  </div>
+
+  <script>
+    // Configuration - All values replaced by Page Builder agent
+    const CONFIG = {
+      POOL_URL: '{{POOL_URL}}',
+      PRICE_PRIMARY: {{PRICE}},
+      PRICE_SECONDARY: {{PREORDER_PRICE}},
+      PRICE_BUMP: {{PRICE}} + {{BUMP_PRICE}},
+      HAS_SIZES: {{HAS_SIZES}}
+    };
+
+    // State
+    let selectedSize = CONFIG.HAS_SIZES ? null : 'ONE_SIZE';
+
+    // Size Selection (only if HAS_SIZES is true)
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedSize = btn.dataset.size;
+      });
+    });
+
+    // Gallery
+    document.querySelectorAll('.gallery-item').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('mainImage').src = img.src;
+        document.querySelectorAll('.gallery-item').forEach(i => i.classList.remove('active'));
+        img.classList.add('active');
+      });
+    });
+
+    // Accordion
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+
+    // CTA Handlers
+    function handleAddToCart(type) {
+      // Only require size selection if product has sizes
+      if (CONFIG.HAS_SIZES && !selectedSize) {
+        alert('Please select a size');
+        return;
+      }
+
+      if (type === 'primary') {
+        // Direct checkout - no popup
+        processOrder(CONFIG.PRICE_PRIMARY);
+      } else {
+        // Show order bump popup
+        showOrderBumpPopup();
+      }
+    }
+
+    function showOrderBumpPopup() {
+      document.getElementById('orderBumpPopup').classList.add('active');
+    }
+
+    function hideOrderBumpPopup() {
+      document.getElementById('orderBumpPopup').classList.remove('active');
+    }
+
+    async function processOrder(amount) {
+      try {
+        // Track TikTok event
+        if (typeof ttq !== 'undefined') {
+          ttq.track('InitiateCheckout', { value: amount, currency: 'USD' });
+        }
+
+        // Get exchange URL from pool
+        const response = await fetch(`${CONFIG.POOL_URL}/buy-now`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amountUSD: amount })
+        });
+
+        if (!response.ok) throw new Error('Pool request failed');
+
+        const data = await response.json();
+
+        if (data.exchangeUrl) {
+          window.location.href = data.exchangeUrl;
+        } else {
+          throw new Error('No exchange URL returned');
+        }
+      } catch (error) {
+        console.error('Order error:', error);
+        alert('Something went wrong. Please try again.');
+      }
+    }
+
+    // Event Listeners
+    document.getElementById('primaryCTA').addEventListener('click', () => handleAddToCart('primary'));
+    document.getElementById('secondaryCTA').addEventListener('click', () => handleAddToCart('secondary'));
+
+    document.getElementById('popupAccept').addEventListener('click', () => {
+      hideOrderBumpPopup();
+      processOrder(CONFIG.PRICE_BUMP);
+    });
+
+    document.getElementById('popupDecline').addEventListener('click', () => {
+      hideOrderBumpPopup();
+      processOrder(CONFIG.PRICE_SECONDARY);
+    });
+
+    // Close popup on overlay click
+    document.getElementById('orderBumpPopup').addEventListener('click', (e) => {
+      if (e.target.id === 'orderBumpPopup') {
+        hideOrderBumpPopup();
+      }
+    });
+  </script>
+</body>
+</html>

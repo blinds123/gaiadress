@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "pool_url": "https://simpleswap-automation-1.onrender.com",
+  "pool_19": 15,
+  "pool_29": 15,
+  "pool_59": 15,
+  "health_response": "{\"status\":\"healthy\",\"mode\":\"dynamic-pool\",\"pools\":{\"19\":15,\"29\":15,\"59\":15},\"totalSize\":45,\"totalMaxSize\":45,\"timestamp\":\"2025-12-02T03:50:14.837Z\"}"
+}

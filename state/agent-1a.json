@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "product_count": 6,
+  "testimonial_count": 24,
+  "product_gallery_html": "<img src=\"images/product/product-01.jpeg\" class=\"gallery-item active\" alt=\"Product view 1\">\n<img src=\"images/product/product-02.jpeg\" class=\"gallery-item\" alt=\"Product view 2\">\n<img src=\"images/product/product-03.jpeg\" class=\"gallery-item\" alt=\"Product view 3\">\n<img src=\"images/product/product-04.jpeg\" class=\"gallery-item\" alt=\"Product view 4\">\n<img src=\"images/product/product-05.jpeg\" class=\"gallery-item\" alt=\"Product view 5\">\n<img src=\"images/product/product-06.jpeg\" class=\"gallery-item\" alt=\"Product view 6\">",
+  "size_options_html": "<button class=\"size-btn\" data-size=\"XXS\">XXS</button>\n<button class=\"size-btn\" data-size=\"XS\">XS</button>\n<button class=\"size-btn\" data-size=\"S\">S</button>\n<button class=\"size-btn\" data-size=\"M\">M</button>\n<button class=\"size-btn\" data-size=\"L\">L</button>\n<button class=\"size-btn\" data-size=\"XL\">XL</button>\n<button class=\"size-btn\" data-size=\"XXL\">XXL</button>"
+}
