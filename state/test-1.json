@@ -1,0 +1,9 @@
+{
+  "test": "purchase_flows",
+  "passed": true,
+  "primary_cta_works": true,
+  "secondary_cta_popup": true,
+  "exchange_valid": true,
+  "exchange_url_sample": "https://simpleswap.io/exchange?id=mxzw9wr8h7uet48s",
+  "errors": []
+}

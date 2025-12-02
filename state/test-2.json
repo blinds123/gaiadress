@@ -1,0 +1,13 @@
+{
+  "test": "ui_testimonials",
+  "passed": true,
+  "all_images_loaded": true,
+  "product_image_count": 7,
+  "testimonial_image_count": 24,
+  "testimonials_full_size": true,
+  "no_horizontal_scroll_mobile": true,
+  "no_horizontal_scroll_desktop": true,
+  "accordions_work": true,
+  "gallery_works": true,
+  "errors": []
+}

@@ -1,0 +1,19 @@
+{
+  "test": "pool_health",
+  "passed": true,
+  "pool_reachable": true,
+  "pool_19": 15,
+  "pool_29": 15,
+  "pool_59": 15,
+  "pool_19_sufficient": true,
+  "pool_29_sufficient": true,
+  "pool_59_sufficient": true,
+  "buy_now_works": true,
+  "errors": [],
+  "timestamp": "2025-12-02T03:59:24.705Z",
+  "mode": "dynamic-pool",
+  "total_pool_size": 45,
+  "total_max_size": 45,
+  "buy_now_response_time": "1ms",
+  "buy_now_exchange_url": "https://simpleswap.io/exchange?id=6hqrnxeif4vq9qss"
+}

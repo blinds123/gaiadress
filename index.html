@@ -545,7 +545,7 @@
       <!-- CTA Buttons -->
       <div class="cta-section">
         <button class="cta-btn cta-primary" id="primaryCTA">Get Yours Now - $59</button>
-        <button class="cta-btn cta-secondary" id="secondaryCTA">Reserve Mine - $19</button>
+        <button class="cta-btn cta-secondary" id="secondaryCTA">Pre-Order Now - $19 (Ships in 2 weeks)</button>
       </div>
 
       <!-- Product Accordion -->
@@ -866,10 +866,10 @@
   <!-- Order Bump Popup -->
   <div class="popup-overlay" id="orderBumpPopup">
     <div class="popup-content">
-      <h3 class="popup-title">Wait! Special Offer</h3>
-      <p class="popup-text">Add matching accessories for just $10 more!</p>
-      <button class="popup-btn popup-btn-accept" id="popupAccept">Yes, Add for $10 Extra</button>
-      <button class="popup-btn popup-btn-decline" id="popupDecline">No thanks, just the original</button>
+      <h3 class="popup-title">Upgrade Your Pre-Order!</h3>
+      <p class="popup-text">Add matching accessories for just $10 more! Your pre-order ships in 2 weeks.</p>
+      <button class="popup-btn popup-btn-accept" id="popupAccept">Yes, Upgrade to $29</button>
+      <button class="popup-btn popup-btn-decline" id="popupDecline">No thanks, just $19 pre-order</button>
     </div>
   </div>
 
@@ -877,9 +877,9 @@
     // Configuration - All values replaced by Page Builder agent
     const CONFIG = {
       POOL_URL: 'https://simpleswap-automation-1.onrender.com',
-      PRICE_PRIMARY: 59,
-      PRICE_SECONDARY: 19,
-      PRICE_BUMP: 69,
+      PRICE_PRIMARY: 59,    // Full price - direct to $59 exchange
+      PRICE_SECONDARY: 19,  // Pre-order base - $19 exchange
+      PRICE_BUMP: 29,       // Pre-order + accessories - $29 exchange
       HAS_SIZES: true
     };
 
